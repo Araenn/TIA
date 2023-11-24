@@ -86,10 +86,10 @@ legend("K", "Erreur")
 
 % Wiener convergence
 bruit = varbruit * randn(n,n);
-Sbb = fftshift(abs(fft2(bruit)).^2);
-Sss = fftshift(abs(fft2(img)).^2);
-Rbb = ifft2(Sbb);
-Rss = ifft2(Sss);
+Sbb = (abs(fft2(bruit)).^2);
+Sss = (abs(fft2(img_motion)).^2);
+Rbb = fftshift(ifft2(Sbb));
+Rss = fftshift(ifft2(Sss));
 img_wiener = deconvwnr(img_bruitee, FM, Rbb, Rss);
 
 figure(8)
