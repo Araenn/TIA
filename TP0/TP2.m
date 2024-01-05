@@ -20,7 +20,7 @@ title("Image floutée type mouvement")
 
 % ajout de bruit
 sigma = 0;
-varbruit = 10^-6;
+varbruit = 10^-4;
 img_bruitee = imnoise(img_motion, "gaussian", sigma, varbruit);
 
 figure(3)
@@ -83,6 +83,7 @@ hold on
 plot(tabE)
 grid()
 legend("K", "Erreur")
+title("Evolution de l'erreur selon la valeur de K")
 
 % Wiener convergence
 bruit = varbruit * randn(n,n);
@@ -94,3 +95,4 @@ img_wiener = deconvwnr(img_bruitee, FM, Rbb, Rss);
 
 figure(8)
 imshow(img_wiener)
+title("Wiener théorique")
